@@ -47,8 +47,8 @@ module Setler
       end
     end
 
-    def self.all
-      @@defaults.merge(Hash[thing_scoped.all.collect{ |s| [s.var, s.value] }])
+    def self.to_h
+      @@defaults.merge(Hash[thing_scoped.map{ |s| [s.var, s.value] }])
     end
 
     def self.thing_scoped
